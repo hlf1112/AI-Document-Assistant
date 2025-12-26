@@ -1,0 +1,85 @@
+body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 800px; margin: 40px auto; background: #f4f7f6; color: #333; }
+.container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+h2 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
+.section { margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #eee; }
+
+/* 聊天框样式优化 */
+#chatBox {
+    height: 450px;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fafafa;
+    border-radius: 8px;
+    scroll-behavior: smooth; /* 平滑滚动 */
+}
+
+/* 消息气泡样式 */
+.msg-row { margin-bottom: 15px; display: flex; flex-direction: column; }
+
+.user-msg {
+    align-self: flex-end;
+    background: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2);
+}
+
+.ai-msg {
+    align-self: flex-start;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 15px 15px 15px 0;
+    max-width: 90%;
+    line-height: 1.6;
+    color: #2c3e50;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    /* ⚠️ 删除或注释掉 white-space: pre-wrap; */
+    /* 因为 Markdown 会生成 <p> 标签，不需要保留原始换行了 */
+    /* white-space: pre-wrap; */
+    overflow-wrap: break-word; /* 防止长代码溢出 */
+}
+/* --- 新增：Markdown 元素样式 --- */
+.ai-msg p { margin: 0 0 10px 0; } /* 段落间距 */
+.ai-msg ul, .ai-msg ol { margin: 0 0 10px 20px; padding-left: 0; }
+.ai-msg li { margin-bottom: 5px; }
+.ai-msg strong { color: #2980b9; font-weight: 700; } /* 加粗字体高亮 */
+/* 代码块样式 */
+.ai-msg pre {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto; /* 代码太长支持横向滚动 */
+    border: 1px solid #eee;
+    margin: 10px 0;
+}
+.ai-msg code {
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    background: #f1f2f6;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #e74c3c;
+    font-size: 0.9em;
+}
+.ai-msg pre code {
+    background: none;
+    color: #333;
+    padding: 0;
+}
+
+.ai-label { font-size: 12px; color: #27ae60; margin-bottom: 4px; font-weight: bold; }
+.user-label { font-size: 12px; color: #3498db; margin-bottom: 4px; align-self: flex-end; font-weight: bold; }
+
+/* 输入区样式 */
+.input-group { display: flex; gap: 10px; }
+input[type="text"] { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 6px; outline: none; transition: border 0.3s; }
+input[type="text"]:focus { border-color: #3498db; }
+button { padding: 12px 25px; cursor: pointer; background: #3498db; color: white; border: none; border-radius: 6px; font-weight: bold; transition: background 0.2s; }
+button:hover { background: #2980b9; }
+button:disabled { background: #bdc3c7; cursor: not-allowed; }
+#status { font-size: 0.9em; margin-top: 10px; color: #7f8c8d; }
